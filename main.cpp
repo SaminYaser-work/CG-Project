@@ -4,38 +4,37 @@
 #include <random>
 #include <windows.h>
 #include <GL/glut.h>
+#include <iostream>
+//#include <SFML/Audio.hpp>
 
-const double DEG2RAD = 3.1415926535897932384/180;
+#define GL_CLAMP_TO_EDGE 0x812F
+#include "bg.h";
+#include "player.h";
 
-// Screen width & height
+
 const float sWidth = 1336;
 const float sHeight = 768;
 
-// Animation speed
 static int animationPeriod = 4;
-
-// Game start or pause
 static int isAnimate = 0;
 
 // Player height
 const int fact = 3;
 
-// Player character distance from the right side of the screen
-const int x = 80;
-
-// Player character distance from the bottom of the screen
-static double w = 200;
-
 // Used for jumping
 static int flag = 0;
 
-// Obstacle
+static int walk = 0;
 static int x_ = 2500;
 static int x2_ = 4500;
 static double obstacleHeight = 1.0;
 
 
-// Timer
+// Aspect ratio
+double monW = 2560.0;
+double monH = 1440.0;
+float aspectRatio = monW / monH;
+
 void animate(int value)
 {
     if(isAnimate)
@@ -45,17 +44,13 @@ void animate(int value)
     }
 }
 
-template<typename T>
-T getRand(T minRange, T maxRange)
-{
-    return minRange + ( fmod(rand(),  ( maxRange - minRange + 1 ) ));
-}
 
 void keyInput(unsigned char key, int x, int y)
 {
     switch(key)
     {
     case 27:
+    case 'q':
         exit(0);
 
     // Starts and Pauses the game
@@ -86,51 +81,86 @@ bool collision(double len)
 
 void specialKeyInput(int key, int x, int y )
 {
-    if( key == GLUT_KEY_UP && flag==0 && w <= 200.0)
+    if( key == GLUT_KEY_UP && flag==0 && w <= 250.0)
     {
         flag  = 1;
+        sndPlaySound("C:\\Users\\samin\\Documents\\Projects\\Graphics\\2dDino\\sound\\jump.wav", SND_ASYNC);
     }
     glutPostRedisplay();
+}
+
+void draw_circle(double theta, double inner_radius, double outer_radius, int x, int y, int sin_sign = 1, int cos_sign = 1)
+{
+    glBegin(GL_POINTS);
+    glColor3f(1.0, 1.0, 1.0);
+    for(double r = outer_radius; r >= inner_radius; r -= 3.0)
+    {
+        for(double i = 0; i < theta ; i++)
+        {
+            double degInRad = i * DEG2RAD;
+            glVertex2f( cos_sign * cos(degInRad) * r + x, sin_sign * sin(degInRad) * r + y  );
+        }
+    }
+    glEnd();
 }
 
 void generate_tree(int x_, double len)
 {
     int x = 30;
-    glColor3ub(0, 0, 0);
+    glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
-    glVertex2f(x_ - 50, 400 * len);
+    glVertex2f(x_, 250 * len);
+    glVertex2f(x_ + x, 250 * len);
+    glVertex2f(x_ + x, 650 * len);
+    glVertex2f(x_, 650 * len);
+    glEnd();
+
+    draw_circle(180.0, 0.0, x / 2, x_ + x / 2, 650 * len);
+
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(x_ + x + 25, 400 * len);
     glVertex2f(x_ + x + 50, 400 * len);
     glVertex2f(x_ + x + 50, 600 * len);
-    glVertex2f(x_ - 50, 600 * len);
+    glVertex2f(x_ + x + 25, 600 * len);
     glEnd();
+
+    draw_circle(180.0, 0.0, 25.0 / 2, x_ + x + 75.0 / 2, 600 * len);
+
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(x_ - 25, 400 * len);
+    glVertex2f(x_ - 50, 400 * len);
+    glVertex2f(x_ - 50, 600 * len);
+    glVertex2f(x_ - 25, 600 * len);
+    glEnd();
+
+    draw_circle(180.0, 0.0, 25.0 / 2, x_ - 75.0 / 2, 600 * len);
+    draw_circle(90.0, 25, 50, x_ + x, 400 * len, -1);
+    draw_circle(90.0, 25, 50, x_, 400 * len, -1, -1);
 }
 
-void drawPlayer()
-{
-    glBegin(GL_QUADS);
-    glColor3ub(0, 0, 0);
-    glVertex2i(10 + x, 100 + w);
-    glVertex2i(157 + x, 100 + w);
-    glVertex2i(157 + x, 500 + w);
-    glVertex2i(10 + x, 500 + w);
-    glEnd();
-}
 
 void reset()
 {
-    w = 200;
+    w = 250;
     flag = 0;
-
+    walk = 0;
     x_ = 2500;
     x2_ = 4500;
     animationPeriod = 4;
     isAnimate = 0;
 }
+
+
 void render( void )
 {
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Making distance between 2 obstacle if they become too close
+    drawBG();
+
+    drawStreet();
+
     if(x2_ > x_)
     {
         x2_ - x_ < 1000 ? x2_ += 500 : x2_ = x2_;
@@ -140,10 +170,8 @@ void render( void )
         x_ - x2_ < 1000 ? x_ += 500 : x_ = x_;
     }
 
-    // Placing obstacle
     generate_tree(x_, obstacleHeight);
     generate_tree(x2_, obstacleHeight);
-
 
     // Move the obstacle closer
     if(x_>= 0)
@@ -151,24 +179,38 @@ void render( void )
     else
     {
         x_ = 2000 + getRand<int>(0, 500);
+//        obstacleHeight = getRand<int>(1 , 2);
     }
     x2_ >= 0 ? x2_ -= 5 : x2_ = 4500 + getRand<int>(1000, 1500);
 
-
-    // The street
-    glLineWidth(2);
+    // The street outer line
+    glLineWidth(5);
+    glColor3ub(182, 29, 129);
     glBegin(GL_LINES);
-    glColor3f(0.0, 1.0, 0.0);
-    glVertex2f(0, 250);
-    glVertex2f(2000, 250);
+        glVertex2f(0, 250);
+        glVertex2f(2000, 250);
     glEnd();
 
     drawPlayer();
 
-    // Collision check
     if(collision(0.8))
     {
         reset();
+    }
+
+    // Feet animation
+    if( w <=250)
+    {
+        if(walk==-20 )
+            walk = 20;
+        else
+        {
+            walk = -20;
+        }
+    }
+    else
+    {
+        walk = 0;
     }
 
     // Jump
@@ -177,7 +219,7 @@ void render( void )
         // Going up
         if(w<=1000 )
         {
-            w += 8;
+            w = w + 8;
         }
         else
         {
@@ -185,11 +227,10 @@ void render( void )
         }
     }
     // Coming back down
-    else if(w >= 200 ){
-        w -= 8;
-    }
+    else if(w >= 250 )
+        w = w - 8;
 
-    //Swapping buffer form GPU to CPU
+
     glutSwapBuffers();
 }
 
@@ -200,12 +241,15 @@ void myInit(void)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0.0, 2000, 0.0, 2000);
+//    getTexture();
 }
 
 int main( int argc, char** argv )
 {
-
     srand(time(NULL));
+    randomizeArray();
+    incrementLine();
+    decrementLine();
 
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA);
@@ -219,9 +263,10 @@ int main( int argc, char** argv )
 
     myInit();
     glutDisplayFunc(render);
-
     glutKeyboardFunc(keyInput);
     glutSpecialFunc(specialKeyInput);
+
+
 
     glutMainLoop();
 }
