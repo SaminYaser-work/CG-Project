@@ -896,10 +896,10 @@
 	<windows.h>
 	<stddef.h>
 
-1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
+1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
 	"freeglut_std.h"
 
-1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
+1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -916,11 +916,44 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1648382868 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1649253161 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
 	<time.h>
 	<cmath>
 	<math.h>
 	<random>
 	<windows.h>
 	<GL/glut.h>
+	<iostream>
+	"bg.h"
+	"player.h"
+
+1649253543 c:\users\samin\documents\projects\graphics\cg-project\bg.h
+
+1649253278 c:\users\samin\documents\projects\graphics\cg-project\player.h
+	"stb_image.h"
+
+1648647898 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1526093414 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\assert.h
+	<crtdefs.h>
+	<stdlib.h>
+
+1526093414 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\stdint.h
+	<crtdefs.h>
+	<stddef.h>
 

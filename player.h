@@ -9,6 +9,8 @@ static double w = 250;
 
 GLuint texture_obj = 0;
 
+void drawWheel(double, double, double);
+void DrawEllipse(float, float, float, float, int);
 
 void drawPlayer()
 {
@@ -30,6 +32,9 @@ void drawPlayer()
         glVertex2i(x + 147,       w);
         glVertex2i(x +  30, 200 + w);
     glEnd();
+
+    drawWheel(x+ 10, w, 10.0);
+//    DrawEllipse(1000, 1000, 100, 200, 360);
 
     // Hand
     glColor3ub(255,92,6);
@@ -78,6 +83,21 @@ void drawPlayer()
         glVertex2i(x + 100, 570 + w);
     glEnd();
 }
+
+void drawWheel(double cenx, double ceny, double radius)
+{
+    double theta;
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 255, 255);
+    for(int i = 0; i < 360; i++)
+    {
+        theta = i * DEG2RAD;
+        glVertex2d(cenx + radius * cos(theta), ceny + radius * sin(theta));
+    }
+    glEnd();
+}
+
 
 //void getTexture()
 //{

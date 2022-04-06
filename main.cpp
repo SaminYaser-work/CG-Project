@@ -5,7 +5,6 @@
 #include <windows.h>
 #include <GL/glut.h>
 #include <iostream>
-//#include <SFML/Audio.hpp>
 
 #define GL_CLAMP_TO_EDGE 0x812F
 #include "bg.h";
@@ -29,11 +28,6 @@ static int x_ = 2500;
 static int x2_ = 4500;
 static double obstacleHeight = 1.0;
 
-
-// Aspect ratio
-double monW = 2560.0;
-double monH = 1440.0;
-float aspectRatio = monW / monH;
 
 void animate(int value)
 {
