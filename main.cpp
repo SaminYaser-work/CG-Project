@@ -78,7 +78,7 @@ void specialKeyInput(int key, int x, int y )
     if( key == GLUT_KEY_UP && flag==0 && w <= 250.0)
     {
         flag  = 1;
-        sndPlaySound("C:\\Users\\samin\\Documents\\Projects\\Graphics\\2dDino\\sound\\jump.wav", SND_ASYNC);
+        sndPlaySound("jump.wav", SND_ASYNC);
     }
     glutPostRedisplay();
 }
