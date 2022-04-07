@@ -42,7 +42,10 @@
 			<Add library="gdi32" />
 			<Add directory="C:/Program Files/CodeBlocks/MinGW/x86_64-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="bg.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="player.h" />
+		<Unit filename="stb_image.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

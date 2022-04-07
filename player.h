@@ -9,8 +9,7 @@ static double w = 250;
 
 GLuint texture_obj = 0;
 
-void drawWheel(double, double, double);
-void DrawEllipse(float, float, float, float, int);
+void drawWheel(float, float, float, float, int);
 
 void drawPlayer()
 {
@@ -27,14 +26,33 @@ void drawPlayer()
 
     // Wheel
     glColor3ub(36,38,39);
-    glBegin(GL_POLYGON);
+    glLineWidth(5);
+    glBegin(GL_LINES);
         glVertex2i(x +  10,       w);
         glVertex2i(x + 147,       w);
+
+        glVertex2i(x + 147,       w);
         glVertex2i(x +  30, 200 + w);
+
+        glVertex2i(x +  30, 200 + w);
+        glVertex2i(x +  10,       w);
     glEnd();
 
-    drawWheel(x+ 10, w, 10.0);
-//    DrawEllipse(1000, 1000, 100, 200, 360);
+    glColor3ub(120,120,120);
+    drawWheel(x+41, w + 47, 25, 25*aspectRatio, 360);
+    drawWheel(x+41, w + 140, 15, 15*aspectRatio, 360);
+    drawWheel(x+100, w + 35, 18, 18*aspectRatio, 360);
+
+    glColor3ub(0, 0, 0);
+    glLineWidth(3);
+    glBegin(GL_LINES);
+        glVertex2i(x + 41, w + 47);
+        glVertex2i(x + 100, w + 35);
+        glVertex2i(x + 41, w + 47);
+        glVertex2i(x + 41, w + 140);
+        glVertex2i(x + 41, w + 140);
+        glVertex2i(x + 100, w + 35);
+    glEnd();
 
     // Hand
     glColor3ub(255,92,6);
@@ -51,6 +69,7 @@ void drawPlayer()
     glBegin(GL_LINES);
         glVertex2i(x + 170, 325 + w);
         glVertex2i(x + 190, 325 + w);
+    glLineWidth(3);
         glVertex2i(x + 190, 330 + w);
         glVertex2i(x + 200, 300 + w);
     glEnd();
@@ -84,19 +103,30 @@ void drawPlayer()
     glEnd();
 }
 
-void drawWheel(double cenx, double ceny, double radius)
+void drawWheel(float cx, float cy, float rx, float ry, int num_segments)
 {
-    double theta;
+    float theta = 2 * 3.1415926 / float(num_segments);
+    float c = cosf(theta);
+    float s = sinf(theta);
+    float t;
+
+    float x = 1;
+    float y = 0;
 
     glBegin(GL_POLYGON);
-    glColor3ub(255, 255, 255);
-    for(int i = 0; i < 360; i++)
+    for(int ii = 0; ii < num_segments; ii++)
     {
-        theta = i * DEG2RAD;
-        glVertex2d(cenx + radius * cos(theta), ceny + radius * sin(theta));
+        //apply radius and offset
+        glVertex2f(x * rx + cx, y * ry + cy);//output vertex
+
+        //apply the rotation matrix
+        t = x;
+        x = c * x - s * y;
+        y = s * t + c * y;
     }
     glEnd();
 }
+
 
 
 //void getTexture()

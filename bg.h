@@ -131,7 +131,7 @@ void drawBG()
 //    glEnd();
 
 //    glColor3ub(255, 0, 0);
-    DrawEllipse(1000, 1100, 300, 300*aspectRatio, 360);
+    DrawEllipse(1000, 900, 300, 300*aspectRatio, 360);
 
 
     // Ground
@@ -224,8 +224,8 @@ void drawStreet()
     glColor3ub(0, 0, 0);
     glVertex2i(0,0);
     glVertex2i(2000, 0);
-    glVertex2i(2000, 250);
-    glVertex2i(0, 250);
+    glVertex2i(2000, 240);
+    glVertex2i(0, 240);
     glEnd();
 
     // bullshit on the street

@@ -916,7 +916,7 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1649253161 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1649254799 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
 	<time.h>
 	<cmath>
 	<math.h>
@@ -927,9 +927,9 @@
 	"bg.h"
 	"player.h"
 
-1649253543 c:\users\samin\documents\projects\graphics\cg-project\bg.h
+1649254754 c:\users\samin\documents\projects\graphics\cg-project\bg.h
 
-1649253278 c:\users\samin\documents\projects\graphics\cg-project\player.h
+1649256855 c:\users\samin\documents\projects\graphics\cg-project\player.h
 	"stb_image.h"
 
 1648647898 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h
