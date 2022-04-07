@@ -186,8 +186,8 @@ void render( void )
     glLineWidth(5);
     glColor3ub(182, 29, 129);
     glBegin(GL_LINES);
-        glVertex2f(0, 240);
-        glVertex2f(2000, 240);
+        glVertex2f(0, 250);
+        glVertex2f(2000, 250);
     glEnd();
 
     drawPlayer();

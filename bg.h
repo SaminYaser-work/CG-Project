@@ -110,29 +110,7 @@ void drawBG()
     }
     glEnd();
 
-    // Sun
-//    double theta;
-//    double cenx = 1000;
-//    double ceny = 900;
-//    double radius = 500;
-//    int col3 = 0;
-//    int col2 = 255;
-//
-//    glBegin(GL_POLYGON);
-//    for(int i = 0; i < 360; i++)
-//    {
-//        glColor3ub(253, col2, col3);
-//        col2 == 0 ? col2 = 0 : col2 -= 1;
-//        col3 == 255 ? col3 = 0 : col3 += 1;
-//
-//        theta = i * DEG2RAD;
-//        glVertex2d(cenx + radius * cos(theta), ceny + radius * sin(theta));
-//    }
-//    glEnd();
-
-//    glColor3ub(255, 0, 0);
     DrawEllipse(1000, 900, 300, 300*aspectRatio, 360);
-
 
     // Ground
     glBegin(GL_POLYGON);
@@ -181,7 +159,7 @@ void drawBG()
 
         hLine += rate;
         if(rate > 5)
-            rate /= 1.05;
+            rate /= 1.06;
         else
             rate = 5;
     }
@@ -224,8 +202,8 @@ void drawStreet()
     glColor3ub(0, 0, 0);
     glVertex2i(0,0);
     glVertex2i(2000, 0);
-    glVertex2i(2000, 240);
-    glVertex2i(0, 240);
+    glVertex2i(2000, 250);
+    glVertex2i(0, 250);
     glEnd();
 
     // bullshit on the street

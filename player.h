@@ -26,7 +26,7 @@ void drawPlayer()
 
     // Wheel
     glColor3ub(36,38,39);
-    glLineWidth(5);
+    glLineWidth(8);
     glBegin(GL_LINES);
         glVertex2i(x +  10,       w);
         glVertex2i(x + 147,       w);
