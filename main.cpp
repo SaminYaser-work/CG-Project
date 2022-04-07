@@ -49,11 +49,16 @@ void keyInput(unsigned char key, int x, int y)
 
     // Starts and Pauses the game
     case ' ':
-        if(isAnimate) isAnimate = 0;
+        if(isAnimate)
+        {
+            isAnimate = 0;
+            sndPlaySound("pause.wav", SND_ASYNC);
+        }
         else
         {
             isAnimate = 1;
             animate(1);
+            sndPlaySound("start.wav", SND_ASYNC);
         }
         break;
     }
@@ -190,6 +195,7 @@ void render( void )
     if(collision(0.8))
     {
         reset();
+        sndPlaySound("game_over.wav", SND_ASYNC);
     }
 
     // Feet animation
@@ -235,6 +241,7 @@ void myInit(void)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0.0, 2000, 0.0, 2000);
+    sndPlaySound("theme.wav", SND_ASYNC);
 //    getTexture();
 }
 
