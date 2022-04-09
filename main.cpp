@@ -1,22 +1,33 @@
+#include <windows.h>
+#include <GL/glut.h>
+#include <iostream>
+#include <string>
+#include <cstring>
 #include <time.h>
 #include <cmath>
 #include <math.h>
 #include <random>
-#include <windows.h>
-#include <GL/glut.h>
-#include <iostream>
 
 #define GL_CLAMP_TO_EDGE 0x812F
 #include "bg.h";
 #include "player.h";
 #include "obstacle.h";
 
-
 const float sWidth = 1336;
 const float sHeight = 768;
 
-static int animationPeriod = 4;
+float animationPeriod = 9.0; // 10 means-> slower; closer to 0 means faster
 static int isAnimate = 0;
+bool rainday = true;
+float rain = 0.0;
+// time calculation
+clock_t clockStart;
+double excectime()
+{
+    clock_t clockEnd = clock();
+    double time_taken = double(clockEnd - clockStart) / double(CLOCKS_PER_SEC);
+    return time_taken;
+}
 
 // Player height
 const int fact = 3;
@@ -100,15 +111,80 @@ void reset()
     isAnimate = 0;
 }
 
+string Current_Score(double exTime){
+    string message_ = "Score: ", scr = to_string(exTime);
+    int rmv =3;
+    while(rmv--) scr.pop_back();
+    message_ += scr;
+    return message_;
+}
+
+bool UpdateDiffculty(double exTime){
+    int val = int(exTime);
+    if(val%10 == 0)
+        return true;
+    return false;
+}
+
+void Rain(int value)
+{
+    if(rainday)
+    {
+        rain += 0.01f;
+
+        glBegin(GL_POINTS);
+        for(int i=1; i<=1000; i++)
+        {
+            int x=rand(),y=rand();
+            x%=1300;
+            y%=650;
+            glBegin(GL_LINES);
+            glColor3f(1.0, 1.0, 1.0);
+            glVertex2d(x,y);
+            glVertex2d(x+5,y+5);
+            glEnd();
+        }
+        glutPostRedisplay();
+        glutTimerFunc(5, Rain, 0);
+        glFlush();
+    }
+}
+
+void printText(string massage, float position_X=130.0, float position_Y=1900.0){
+    int n = massage.size();
+
+    glRasterPos2f(position_X,position_Y);
+//    int len=strlen(txt);
+    for(int i=0; i<massage.size(); i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,massage[i]);
+    }
+}
 
 void render( void )
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     drawBG();
 
     drawStreet();
 
+    //rainday =true;
+    //Rain(rain);
+    //*** Rain works fine, but the position in not okay...! Also creating a cause of blocking the difficulty ****//
+
+            //Printing Text
+    double exTime= excectime();
+    printText(Current_Score(exTime));
+    //For update difficulty
+    /*
+        if(UpdateDifficulty(exTime)){
+            animationPeriod -=0.1;
+            if(animationPeriod<=0.0){
+                //We can add Game is completed Here....! :)
+            }
+        }
+    Having Bug in difficulty Function. Had a crash on animation.
+    */
     if(x2_ > x_)
     {
         x2_ - x_ < 1000 ? x2_ += 500 : x2_ = x2_;
@@ -135,8 +211,8 @@ void render( void )
     glLineWidth(5);
     glColor3ub(182, 29, 129);
     glBegin(GL_LINES);
-        glVertex2f(0, 250);
-        glVertex2f(2000, 250);
+    glVertex2f(0, 250);
+    glVertex2f(2000, 250);
     glEnd();
 
     drawPlayer();
@@ -184,6 +260,7 @@ void render( void )
 }
 
 
+
 void myInit(void)
 {
     glClearColor(1.0, 1.0, 1.0, 0.0);
@@ -196,6 +273,7 @@ void myInit(void)
 
 int main( int argc, char** argv )
 {
+    clockStart = clock();
     srand(time(NULL));
     randomizeArray();
     incrementLine();
@@ -220,3 +298,6 @@ int main( int argc, char** argv )
 
     glutMainLoop();
 }
+
+
+
