@@ -1,11 +1,7 @@
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+//#define STB_IMAGE_IMPLEMENTATION
+//#include "stb_image.h"
 
-// Player character distance from the right side of the screen
-const int x = 80;
-
-// Player character distance from the bottom of the screen
-static double w = 250;
+#include "variables.h";
 
 GLuint texture_obj = 0;
 
@@ -128,7 +124,7 @@ void drawWheel(float cx, float cy, float rx, float ry, int num_segments)
 }
 
 
-
+// For loading textures
 //void getTexture()
 //{
 //    //int req_channels = 3;
