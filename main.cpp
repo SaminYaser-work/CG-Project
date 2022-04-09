@@ -13,6 +13,8 @@
 #include "player.h";
 #include "obstacle.h";
 
+using namespace std;
+
 const float sWidth = 1336;
 const float sHeight = 768;
 
