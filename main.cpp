@@ -7,6 +7,7 @@
 #include <cmath>
 #include <math.h>
 #include <random>
+#include <GL/freeglut.h>
 
 #define GL_CLAMP_TO_EDGE 0x812F
 #include "printText.h";
@@ -24,8 +25,6 @@ const float sHeight = 768;
 const float animationPeriod = 4.0; // 10 means-> slower; closer to 0 means faster (DO NOT CHANGE AT RUNTIME)
 static int isAnimate = 0;
 
-
-
 // Player height
 const int fact = 3;
 
@@ -36,6 +35,8 @@ static int walk = 0;
 static int x_ = 2500;
 static int x2_ = 4500;
 static double obstacleHeight = 1.0;
+
+int currSecond = 0;
 
 
 void animate(int value)
@@ -119,9 +120,8 @@ void render( void )
     // Looks like shit
     //Rain(true);
 
-    //Printing Score
-    double exTime= excectime();
-    printText(Current_Score(exTime));
+    //Printing Score every second
+    printText(Current_Score(excectime()));
 
     if(x2_ > x_)
     {
@@ -136,14 +136,9 @@ void render( void )
     generate_tree(x2_, obstacleHeight);
 
     // Move the obstacle closer
-    if(x_>= 0)
-        x_ -= 5;
-    else
-    {
-        x_ = 2000 + getRand<int>(0, 500);
-//        obstacleHeight = getRand<int>(1 , 2);
-    }
-    x2_ >= 0 ? x2_ -= 5 : x2_ = 4500 + getRand<int>(1000, 1500);
+    int diff = 5;
+    x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
+    x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
 
     // The street outer line
     glLineWidth(5);
@@ -206,7 +201,7 @@ void myInit(void)
     glLoadIdentity();
     gluOrtho2D(0.0, 2000, 0.0, 2000);
 
-    // NO MUSIC BECAUSE HARAM
+//    NO MUSIC BECAUSE HARAM
 //    sndPlaySound("theme.wav", SND_ASYNC);
 //    getTexture();
 }

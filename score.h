@@ -10,7 +10,9 @@ double excectime()
     return time_taken;
 }
 
-std::string Current_Score(double exTime){
+std::string Current_Score(double exTime)
+{
+
     std::string message_ = "Score: ";
     std::string scr = std::to_string(std::round(exTime));
     int rmv = 7;

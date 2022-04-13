@@ -1,15 +1,20 @@
 #ifndef PRINTTEXT_H_INCLUDED
 #define PRINTTEXT_H_INCLUDED
 
-void printText(std::string massage, float position_X=130.0, float position_Y=1900.0){
-    int n = massage.size();
+// massage lol
+void printText(std::string massage, float position_X=50.0, float position_Y=1800.0, float scale=1.0){
 
-    glRasterPos2f(position_X,position_Y);
-//    int len=strlen(txt);
-    for(int i=0; i<massage.size(); i++)
-    {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, massage[i]);
-    }
+    glPushMatrix();
+    glTranslatef(position_X, position_Y, 0.0f);
+    glScalef(scale, scale, 0.0f);
+    glLineWidth(5);
+
+    unsigned char buf[256];
+    std::copy(massage.begin(), massage.end(), buf);
+
+    glutStrokeString(GLUT_STROKE_MONO_ROMAN, buf);
+
+    glPopMatrix();
 }
 
 
