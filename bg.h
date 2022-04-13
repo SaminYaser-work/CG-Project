@@ -22,6 +22,8 @@ const int nVLine = 2000 / 50;
 float vLineT[nVLine];
 float vLineD[nVLine];
 
+float rain = 0.0;
+
 void DrawEllipse(float, float, float, float, int);
 
 
@@ -159,7 +161,7 @@ void drawBG()
 
         hLine += rate;
         if(rate > 5)
-            rate /= 1.06;
+            rate /= 1.055;
         else
             rate = 5;
     }
@@ -225,6 +227,35 @@ void drawStreet()
 
     }
     glEnd();
+}
+
+void Rain(bool isRainDay)
+{
+    if(!isRainDay)
+    {
+        return;
+    }
+
+    rain += 0.01f;
+
+    glBegin(GL_POINTS);
+    for(int i=1; i<=1000; i++)
+    {
+        int x=rand(),y=rand();
+        x%=2000;
+        y%=2000;
+        glBegin(GL_LINES);
+        glColor3f(1.0, 1.0, 1.0);
+            glVertex2d(x,y);
+            glVertex2d(x+5,y+5);
+        glEnd();
+    }
+
+    // Not needed
+    //glutPostRedisplay();
+    //glutTimerFunc(5, Rain, 0);
+    //glFlush();
+
 }
 
 #endif // BG_H_INCLUDED

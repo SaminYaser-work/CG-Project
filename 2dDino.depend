@@ -896,10 +896,10 @@
 	<windows.h>
 	<stddef.h>
 
-1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
+1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
 	"freeglut_std.h"
 
-1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
+1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -916,21 +916,26 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1649481274 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1649844152 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<string>
+	<cstring>
 	<time.h>
 	<cmath>
 	<math.h>
 	<random>
-	<windows.h>
-	<GL/glut.h>
-	<iostream>
+	"printText.h"
 	"bg.h"
 	"player.h"
+	"obstacle.h"
+	"score.h"
 
-1649327764 c:\users\samin\documents\projects\graphics\cg-project\bg.h
+1649844206 c:\users\samin\documents\projects\graphics\cg-project\bg.h
 
-1649327814 c:\users\samin\documents\projects\graphics\cg-project\player.h
-	"stb_image.h"
+1649843137 c:\users\samin\documents\projects\graphics\cg-project\player.h
+	"variables.h"
 
 1649323587 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h
 	"stb_image.h"
@@ -991,4 +996,13 @@
 	<emmintrin.h>
 	<intrin.h>
 	<arm_neon.h>
+
+1649843573 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
+
+1649843137 c:\users\samin\documents\projects\graphics\cg-project\variables.h
+
+1649843137 c:\users\samin\documents\projects\graphics\cg-project\obstacle.h
+	"variables.h"
+
+1649843981 c:\users\samin\documents\projects\graphics\cg-project\score.h
 
