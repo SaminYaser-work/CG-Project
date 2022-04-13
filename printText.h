@@ -9,10 +9,12 @@ void printText(std::string massage, float position_X=50.0, float position_Y=1800
     glScalef(scale, scale, 0.0f);
     glLineWidth(thick);
 
-    unsigned char buf[256];
+    unsigned char buf[massage.length() + 1];
     std::copy(massage.begin(), massage.end(), buf);
+    buf[massage.length()] = '\0';
 
     glutStrokeString(GLUT_STROKE_ROMAN, buf);
+    std::cout << buf << std::endl;
 
     glPopMatrix();
 }

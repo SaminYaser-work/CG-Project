@@ -896,10 +896,10 @@
 	<windows.h>
 	<stddef.h>
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
 	"freeglut_std.h"
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -916,7 +916,7 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1649849743 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1649854954 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -934,9 +934,9 @@
 	"score.h"
 	"difficulty.h"
 
-1649844433 c:\users\samin\documents\projects\graphics\cg-project\bg.h
+1649854261 c:\users\samin\documents\projects\graphics\cg-project\bg.h
 
-1649843137 c:\users\samin\documents\projects\graphics\cg-project\player.h
+1649523305 c:\users\samin\documents\projects\graphics\cg-project\player.h
 	"variables.h"
 
 1649323587 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h
@@ -999,21 +999,21 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1649850089 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
+1649855126 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
 
-1649843137 c:\users\samin\documents\projects\graphics\cg-project\variables.h
+1649523305 c:\users\samin\documents\projects\graphics\cg-project\variables.h
 
-1649843137 c:\users\samin\documents\projects\graphics\cg-project\obstacle.h
+1649523305 c:\users\samin\documents\projects\graphics\cg-project\obstacle.h
 	"variables.h"
 
-1649849713 c:\users\samin\documents\projects\graphics\cg-project\score.h
+1649854261 c:\users\samin\documents\projects\graphics\cg-project\score.h
 
-1649844299 c:\users\samin\documents\projects\graphics\cg-project\difficulty.h
+1649854261 c:\users\samin\documents\projects\graphics\cg-project\difficulty.h
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut.h
 	"freeglut_std.h"
 	"freeglut_ext.h"
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_ext.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_ext.h
 	<stdarg.h>
 

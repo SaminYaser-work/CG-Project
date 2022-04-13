@@ -123,7 +123,7 @@ void render( void )
     //Rain(true);
 
     //Printing Score
-    printText(Current_Score(score));
+    printText("Score: " + to_string(score));
     period++;
     if (period > 500/animationPeriod)
     {
@@ -131,6 +131,7 @@ void render( void )
         period = 0;
     }
 
+    // Makes gap between obstacles
     if(x2_ > x_)
     {
         x2_ - x_ < 1000 ? x2_ += 500 : x2_ = x2_;
@@ -140,13 +141,16 @@ void render( void )
         x_ - x2_ < 1000 ? x_ += 500 : x_ = x_;
     }
 
+    // Rendering obstacles
     generate_tree(x_, obstacleHeight);
     generate_tree(x2_, obstacleHeight);
+
 
     // Move the obstacle closer
     int diff = 5; // change this to make the game difficult
     x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
     x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
+
 
     // The street outer line
     glLineWidth(5);
