@@ -1,9 +1,4 @@
-//#define STB_IMAGE_IMPLEMENTATION
-//#include "stb_image.h"
-
 #include "variables.h";
-
-GLuint texture_obj = 0;
 
 void drawWheel(float, float, float, float, int);
 
@@ -123,66 +118,3 @@ void drawWheel(float cx, float cy, float rx, float ry, int num_segments)
     glEnd();
 }
 
-
-// For loading textures
-//void getTexture()
-//{
-//    //int req_channels = 3;
-//    int width = 0, height = 0, channels = 0;
-//    stbi_set_flip_vertically_on_load(true);
-//    stbi_uc *image = stbi_load( "C:\\Users\\samin\\Documents\\Projects\\Graphics\\2dDino\\img.png", &width, &height, &channels, STBI_rgb_alpha );
-//
-//    if ( image != nullptr )
-//    {
-//        glGenTextures(1, &texture_obj);
-//        glBindTexture(GL_TEXTURE_2D, texture_obj);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-//
-//        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-//        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
-//        glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
-//
-//        stbi_image_free( image );
-//    }
-//    else
-//    {
-//        const char* reason = "[unknown reason]";
-//        if (stbi_failure_reason())
-//        {
-//            reason = stbi_failure_reason();
-//        }
-//        std::cout << reason << std::endl;
-//        std::exit(-1);
-//    }
-//}
-//
-//void drawPlayer()
-//{
-//
-//    glEnable(GL_BLEND);
-//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-//    glBindTexture(GL_TEXTURE_2D, texture_obj);
-//    glEnable(GL_TEXTURE_2D);
-//    glBegin(GL_QUADS);
-//
-//    glColor4f(1.0, 0.0, 0.0, 1.0);
-//    glEnable(GL_ALPHA_TEST);
-//    glAlphaFunc(GL_GREATER, 1.0);
-////    glClearColor(0.0, 0.0, 0.0, 1.0);
-//
-//
-//        glTexCoord2i(0, 0); glVertex2i(-50 + x, w);
-//        glTexCoord2i(0, 1); glVertex2i(-50 + x, 500 + w);
-//        glTexCoord2i(1, 1); glVertex2i(157 + x, 500 + w);
-//        glTexCoord2i(1, 0); glVertex2i(157 + x, w);
-//
-//    glEnd();
-//    glDisable(GL_BLEND);
-//    glDisable(GL_ALPHA_TEST);
-//    glDisable(GL_TEXTURE_2D);
-//}
-//

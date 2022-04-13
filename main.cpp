@@ -9,8 +9,8 @@
 #include <random>
 #include <GL/freeglut.h>
 
-#define GL_CLAMP_TO_EDGE 0x812F
 #include "printText.h";
+#include "texture.h";
 #include "bg.h";
 #include "player.h";
 #include "obstacle.h";
@@ -38,6 +38,8 @@ static double obstacleHeight = 1.0;
 
 int score = 0;
 int period = 0;
+
+bool isFirst = true;
 
 
 void animate(int value)
@@ -115,15 +117,17 @@ void reset()
 void render( void )
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     drawBG();
 
     drawStreet();
 
     // Looks like shit
-    //Rain(true);
+    // Rain(true);
 
     //Printing Score
-    printText("Score: " + to_string(score));
+    if(!isFirst)
+        printText("Score: " + to_string(score));
     period++;
     if (period > 500/animationPeriod)
     {
@@ -201,6 +205,12 @@ void render( void )
         w = w - 8;
 
 
+    if(isFirst)
+    {
+        displayTexture("logo.png", 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
+        isFirst = false;
+    }
+
     glutSwapBuffers();
 }
 
@@ -212,6 +222,7 @@ void myInit(void)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0.0, 2000, 0.0, 2000);
+
 
 //    NO MUSIC BECAUSE HARAM
 //    sndPlaySound("theme.wav", SND_ASYNC);

@@ -14,7 +14,6 @@ void printText(std::string massage, float position_X=50.0, float position_Y=1800
     buf[massage.length()] = '\0';
 
     glutStrokeString(GLUT_STROKE_ROMAN, buf);
-    std::cout << buf << std::endl;
 
     glPopMatrix();
 }
