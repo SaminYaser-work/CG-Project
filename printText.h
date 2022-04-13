@@ -8,7 +8,7 @@ void printText(std::string massage, float position_X=130.0, float position_Y=190
 //    int len=strlen(txt);
     for(int i=0; i<massage.size(); i++)
     {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,massage[i]);
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, massage[i]);
     }
 }
 

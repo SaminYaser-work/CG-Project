@@ -11,8 +11,9 @@ double excectime()
 }
 
 std::string Current_Score(double exTime){
-    std::string message_ = "Score: ", scr = std::to_string(exTime);
-    int rmv =3;
+    std::string message_ = "Score: ";
+    std::string scr = std::to_string(std::round(exTime));
+    int rmv = 7;
     while(rmv--) scr.pop_back();
     message_ += scr;
     return message_;
