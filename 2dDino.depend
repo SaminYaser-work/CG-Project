@@ -916,7 +916,7 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1649847021 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1649849743 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -999,14 +999,14 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1649849455 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
+1649850089 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
 
 1649843137 c:\users\samin\documents\projects\graphics\cg-project\variables.h
 
 1649843137 c:\users\samin\documents\projects\graphics\cg-project\obstacle.h
 	"variables.h"
 
-1649845916 c:\users\samin\documents\projects\graphics\cg-project\score.h
+1649849713 c:\users\samin\documents\projects\graphics\cg-project\score.h
 
 1649844299 c:\users\samin\documents\projects\graphics\cg-project\difficulty.h
 

@@ -2,17 +2,17 @@
 #define PRINTTEXT_H_INCLUDED
 
 // massage lol
-void printText(std::string massage, float position_X=50.0, float position_Y=1800.0, float scale=1.0){
+void printText(std::string massage, float position_X=50.0, float position_Y=1800.0, float scale=1.0, int thick=5){
 
     glPushMatrix();
     glTranslatef(position_X, position_Y, 0.0f);
     glScalef(scale, scale, 0.0f);
-    glLineWidth(5);
+    glLineWidth(thick);
 
     unsigned char buf[256];
     std::copy(massage.begin(), massage.end(), buf);
 
-    glutStrokeString(GLUT_STROKE_MONO_ROMAN, buf);
+    glutStrokeString(GLUT_STROKE_ROMAN, buf);
 
     glPopMatrix();
 }

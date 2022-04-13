@@ -36,7 +36,8 @@ static int x_ = 2500;
 static int x2_ = 4500;
 static double obstacleHeight = 1.0;
 
-int currSecond = 0;
+int score = 0;
+int period = 0;
 
 
 void animate(int value)
@@ -105,8 +106,9 @@ void reset()
     walk = 0;
     x_ = 2500;
     x2_ = 4500;
-//    animationPeriod = 4;
     isAnimate = 0;
+    score = 0;
+    period = 0;
 }
 
 
@@ -120,8 +122,14 @@ void render( void )
     // Looks like shit
     //Rain(true);
 
-    //Printing Score every second
-    printText(Current_Score(excectime()));
+    //Printing Score
+    printText(Current_Score(score));
+    period++;
+    if (period > 500/animationPeriod)
+    {
+        score++;
+        period = 0;
+    }
 
     if(x2_ > x_)
     {
@@ -136,7 +144,7 @@ void render( void )
     generate_tree(x2_, obstacleHeight);
 
     // Move the obstacle closer
-    int diff = 5;
+    int diff = 5; // change this to make the game difficult
     x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
     x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
 

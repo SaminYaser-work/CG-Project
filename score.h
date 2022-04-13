@@ -3,6 +3,7 @@
 
 // time calculation
 clock_t clockStart;
+
 double excectime()
 {
     clock_t clockEnd = clock();
