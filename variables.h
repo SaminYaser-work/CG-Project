@@ -11,4 +11,8 @@ int walk = 0;
 
 bool isDead = false;
 
+const char* headTex;
+const char* bodyTex;
+const char* handTex;
+
 #endif // VARIABLES_H_INCLUDED

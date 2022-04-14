@@ -24,7 +24,7 @@ GLuint getTexture(const char* filePath)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
         glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 
         stbi_image_free( image );
@@ -51,6 +51,7 @@ void displayTexture(const char* filePath ,int x1, int y1, int x2, int y2, int x3
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     GLuint texture_obj = getTexture(filePath);
+    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
 
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
     glBindTexture(GL_TEXTURE_2D, texture_obj);
