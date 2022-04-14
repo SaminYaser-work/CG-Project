@@ -916,7 +916,7 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1649921632 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1649922604 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -937,7 +937,7 @@
 
 1649844433 c:\users\samin\documents\projects\graphics\cg-project\bg.h
 
-1649922025 c:\users\samin\documents\projects\graphics\cg-project\player.h
+1649923681 c:\users\samin\documents\projects\graphics\cg-project\player.h
 	"variables.h"
 
 1648647898 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h

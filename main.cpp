@@ -42,6 +42,9 @@ bool isFirst = true;
 
 bool dieNextFrame = false;
 
+int jumpVelocity = 8;
+int grav = 9;
+
 
 void animate(int value)
 {
@@ -202,7 +205,7 @@ void render( void )
         // Going up
         if(w<=1000 )
         {
-            w = w + 8;
+            w = w + jumpVelocity;
         }
         else
         {
@@ -211,7 +214,7 @@ void render( void )
     }
     // Coming back down
     else if(w >= 250 )
-        w = w - 8;
+        w = w - jumpVelocity;
 
 
     if(isFirst)

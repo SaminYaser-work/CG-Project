@@ -7,13 +7,14 @@ void drawPlayer()
     glClearColor(0.0, 0.0, 0.0, 1.0);
 
     // Body
-    isDead ? glColor3ub(215, 0, 64) : glColor3ub(255,126,0);
-    glBegin(GL_POLYGON);
-        glVertex2i(x,       130 + w);
-        glVertex2i(x + 157, 130 + w);
-        glVertex2i(x + 157, 400 + w);
-        glVertex2i(x,       400 + w);
-    glEnd();
+//    isDead ? glColor3ub(215, 0, 64) : glColor3ub(255,126,0);
+//    glBegin(GL_POLYGON);
+//        glVertex2i(x,       130 + w);
+//        glVertex2i(x + 157, 130 + w);
+//        glVertex2i(x + 157, 400 + w);
+//        glVertex2i(x,       400 + w);
+//    glEnd();
+    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\body2.png", x, 130 + w, x + 157, 130 + w, x + 157, 400 + w, x, 400 + w);
 
     // Wheel
     glColor3ub(36,38,39);
@@ -46,13 +47,15 @@ void drawPlayer()
     glEnd();
 
     // Hand
-    isDead ? glColor3ub(222, 49, 99) : glColor3ub(255,92,6);
-    glBegin(GL_QUADS);
-        glVertex2i(x + 20,  300 + w);
-        glVertex2i(x + 170, 300 + w - walk);
-        glVertex2i(x + 170, 340 + w - walk);
-        glVertex2i(x + 20,  340 + w);
-    glEnd();
+//    isDead ? glColor3ub(222, 49, 99) : glColor3ub(255,92,6);
+//    glBegin(GL_QUADS);
+//        glVertex2i(x + 20,  300 + w);
+//        glVertex2i(x + 170, 300 + w - walk);
+//        glVertex2i(x + 170, 340 + w - walk);
+//        glVertex2i(x + 20,  340 + w);
+//    glEnd();
+
+    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\hand.png", x + 20, 300 + w, x + 170, 300 + w - walk, x + 170, 340 + w - walk, x + 20,  340 + w);
 
     // Finger
     glColor3ub(120,120,120);
@@ -92,6 +95,7 @@ void drawPlayer()
         glVertex2i(x + 150 + walk * .2, 570 + w - walk * .2);
         glVertex2i(x + 100 + walk * .2, 570 + w);
     glEnd();
+    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\body.png", x + 100 - walk * .01, 470 + w, x + 150, 470 + w - walk * .2, x + 150 + walk * .2, 570 + w - walk * .2, x + 100 + walk * .2, 570 + w);
 }
 
 void drawWheel(float cx, float cy, float rx, float ry, int num_segments)
