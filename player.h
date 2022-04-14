@@ -6,9 +6,20 @@ void drawPlayer()
 {
     glClearColor(0.0, 0.0, 0.0, 0.5);
 
+    if(isDead)
+    {
+        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4d.png";
+        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\handd.png";
+        headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ds.png";
+    }
+    else
+    {
+        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4s.png";
+        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\hands.png";
+        headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_bs.png";
+    }
+
     // Body
-    bodyTex = isDead ? "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4d.png" :
-                        "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4s.png";
     displayTexture(bodyTex, x, 130 + w, x + 157, 130 + w, x + 157, 400 + w, x, 400 + w);
 
     // Wheel
@@ -42,8 +53,6 @@ void drawPlayer()
     glEnd();
 
     // Hand
-    handTex = isDead ? "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\handd.png" :
-                        "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\hands.png";
     displayTexture(handTex, x + 20, 300 + w, x + 170, 300 + w - walk, x + 170, 340 + w - walk, x + 20,  340 + w);
 
     // Finger
@@ -68,11 +77,6 @@ void drawPlayer()
     displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ss.png",
                    x +  50 - walk * .01, 500 + w, x + 100, 500 + w - walk * .2,
                    x + 100 + walk * .2, 550 + w - walk * .2, x +  50 + walk * .2, 550 + w);
-
-
-
-    headTex = isDead ? "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ds.png" :
-                        "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_bs.png";
 
     displayTexture(headTex,
                     x + 100 - walk * .01, 470 + w, x + 150, 470 + w - walk * .2,
