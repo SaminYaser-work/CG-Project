@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 *.layout
+*.depend
+bin/Debug/*.exe
+obj/Debug/*.o
 
 # Compiled Object files
 *.slo
