@@ -1,36 +1,12 @@
-# Prerequisites
 *.d
 *.layout
 *.depend
+2dDino.depend
+2dDino.layout
 bin/Debug/*.exe
 obj/Debug/*.o
-
-# Compiled Object files
-*.slo
-*.lo
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
 *.exe
 *.out
 *.app
