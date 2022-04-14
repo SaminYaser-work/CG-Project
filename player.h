@@ -6,6 +6,7 @@ void drawPlayer()
 {
     glClearColor(0.0, 0.0, 0.0, 0.5);
 
+    // Assigning textures
     if(isDead)
     {
         bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4d.png";
@@ -18,6 +19,11 @@ void drawPlayer()
         handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\hands.png";
         headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_bs.png";
     }
+
+    neckTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\necks.png";
+    head2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ss.png";
+
+
 
     // Body
     displayTexture(bodyTex, x, 130 + w, x + 157, 130 + w, x + 157, 400 + w, x, 400 + w);
@@ -67,14 +73,14 @@ void drawPlayer()
     glEnd();
 
     // Neck
-    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\necks.png",
+    displayTexture(neckTex,
                    x +  60, 400 + w, x +  80, 400 + w, x + 100, 450 + w, x +  80, 450 + w);
 
-    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\necks.png",
+    displayTexture(neckTex,
                    x + 100, 450 + w, x +  80, 450 + w, x +  60, 500 + w, x +  80, 500 + w);
 
     // Head
-    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ss.png",
+    displayTexture(head2Tex,
                    x +  50 - walk * .01, 500 + w, x + 100, 500 + w - walk * .2,
                    x + 100 + walk * .2, 550 + w - walk * .2, x +  50 + walk * .2, 550 + w);
 

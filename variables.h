@@ -12,7 +12,9 @@ int walk = 0;
 bool isDead = false;
 
 const char* headTex;
+const char* head2Tex;
 const char* bodyTex;
 const char* handTex;
+const char* neckTex;
 
 #endif // VARIABLES_H_INCLUDED
