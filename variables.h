@@ -7,4 +7,8 @@ const int x = 80;
 // Player character distance from the bottom of the screen
 static double w = 250;
 
+int walk = 0;
+
+bool isDead = false;
+
 #endif // VARIABLES_H_INCLUDED

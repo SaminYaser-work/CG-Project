@@ -31,7 +31,6 @@ const int fact = 3;
 // Used for jumping
 static int flag = 0;
 
-static int walk = 0;
 static int x_ = 2500;
 static int x2_ = 4500;
 static double obstacleHeight = 1.0;
@@ -40,6 +39,8 @@ int score = 0;
 int period = 0;
 
 bool isFirst = true;
+
+bool dieNextFrame = false;
 
 
 void animate(int value)
@@ -72,6 +73,8 @@ void keyInput(unsigned char key, int x, int y)
             isAnimate = 1;
             animate(1);
             sndPlaySound("start.wav", SND_ASYNC);
+            isFirst = false;
+            isDead = false;
         }
         break;
     }
@@ -111,6 +114,7 @@ void reset()
     isAnimate = 0;
     score = 0;
     period = 0;
+    dieNextFrame = false;
 }
 
 
@@ -168,23 +172,28 @@ void render( void )
 
     if(collision(0.8))
     {
-        reset();
-        sndPlaySound("game_over.wav", SND_ASYNC);
-    }
+        if(!dieNextFrame)
+        {
+            dieNextFrame = true;
+            isDead = true;
 
-    // Feet animation
-    if( w <=250)
-    {
-        if(walk==-20 )
-            walk = 20;
+        }
         else
         {
-            walk = -20;
+            reset();
+            sndPlaySound("game_over.wav", SND_ASYNC);
         }
+    }
+
+    // Jumping animation
+    if( flag == 1 )
+    {
+        walk += 1;
     }
     else
     {
-        walk = 0;
+        if(walk > 0)
+            walk -= 1;
     }
 
     // Jump
@@ -207,8 +216,10 @@ void render( void )
 
     if(isFirst)
     {
-        displayTexture("logo.png", 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
-        isFirst = false;
+        // Relative path doesn't work
+        // Change this to absolute path of your computer
+        // Don't forget to escape '\' !!!
+        displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png", 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
     }
 
     glutSwapBuffers();
@@ -226,7 +237,6 @@ void myInit(void)
 
 //    NO MUSIC BECAUSE HARAM
 //    sndPlaySound("theme.wav", SND_ASYNC);
-//    getTexture();
 }
 
 int main( int argc, char** argv )
@@ -251,8 +261,6 @@ int main( int argc, char** argv )
     glutDisplayFunc(render);
     glutKeyboardFunc(keyInput);
     glutSpecialFunc(specialKeyInput);
-
-
 
     glutMainLoop();
 }

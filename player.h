@@ -7,7 +7,7 @@ void drawPlayer()
     glClearColor(0.0, 0.0, 0.0, 1.0);
 
     // Body
-    glColor3ub(255,126,0);
+    isDead ? glColor3ub(215, 0, 64) : glColor3ub(255,126,0);
     glBegin(GL_POLYGON);
         glVertex2i(x,       130 + w);
         glVertex2i(x + 157, 130 + w);
@@ -34,7 +34,7 @@ void drawPlayer()
     drawWheel(x+41, w + 140, 15, 15*aspectRatio, 360);
     drawWheel(x+100, w + 35, 18, 18*aspectRatio, 360);
 
-    glColor3ub(0, 0, 0);
+    glColor3ub(0,0,0);
     glLineWidth(3);
     glBegin(GL_LINES);
         glVertex2i(x + 41, w + 47);
@@ -46,11 +46,11 @@ void drawPlayer()
     glEnd();
 
     // Hand
-    glColor3ub(255,92,6);
+    isDead ? glColor3ub(222, 49, 99) : glColor3ub(255,92,6);
     glBegin(GL_QUADS);
         glVertex2i(x + 20,  300 + w);
-        glVertex2i(x + 170, 300 + w);
-        glVertex2i(x + 170, 340 + w);
+        glVertex2i(x + 170, 300 + w - walk);
+        glVertex2i(x + 170, 340 + w - walk);
         glVertex2i(x + 20,  340 + w);
     glEnd();
 
@@ -58,11 +58,11 @@ void drawPlayer()
     glColor3ub(120,120,120);
     glLineWidth(5);
     glBegin(GL_LINES);
-        glVertex2i(x + 170, 325 + w);
-        glVertex2i(x + 190, 325 + w);
+        glVertex2i(x + 170, 325 + w - walk);
+        glVertex2i(x + 190, 325 + w - walk);
     glLineWidth(3);
-        glVertex2i(x + 190, 330 + w);
-        glVertex2i(x + 200, 300 + w);
+        glVertex2i(x + 190, 330 + w - walk);
+        glVertex2i(x + 200, 300 + w - walk);
     glEnd();
 
     // Neck
@@ -82,15 +82,15 @@ void drawPlayer()
     // Head
     glColor3ub(120,120,120);
     glBegin(GL_QUADS);
-        glVertex2i(x +  50, 500 + w);
-        glVertex2i(x + 100, 500 + w);
-        glVertex2i(x + 100, 550 + w);
-        glVertex2i(x +  50, 550 + w);
+        glVertex2i(x +  50 - walk * .01, 500 + w);
+        glVertex2i(x + 100, 500 + w - walk * .2);
+        glVertex2i(x + 100 + walk * .2, 550 + w - walk * .2);
+        glVertex2i(x +  50 + walk * .2, 550 + w);
 
-        glVertex2i(x + 100, 470 + w);
-        glVertex2i(x + 150, 470 + w);
-        glVertex2i(x + 150, 570 + w);
-        glVertex2i(x + 100, 570 + w);
+        glVertex2i(x + 100 - walk * .01, 470 + w);
+        glVertex2i(x + 150, 470 + w - walk * .2);
+        glVertex2i(x + 150 + walk * .2, 570 + w - walk * .2);
+        glVertex2i(x + 100 + walk * .2, 570 + w);
     glEnd();
 }
 

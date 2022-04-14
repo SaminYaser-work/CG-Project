@@ -12,8 +12,7 @@ GLuint getTexture(const char* filePath)
     GLuint texture_obj = 0;
     int width = 0, height = 0, channels = 0;
     stbi_set_flip_vertically_on_load(true);
-    // Need to change this to relative path
-    stbi_uc *image = stbi_load( "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png", &width, &height, &channels, STBI_rgb_alpha );
+    stbi_uc *image = stbi_load( filePath, &width, &height, &channels, STBI_rgb_alpha );
 
     if ( image != nullptr )
     {
