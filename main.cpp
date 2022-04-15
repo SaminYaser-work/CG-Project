@@ -16,6 +16,7 @@
 #include "obstacle.h";
 #include "score.h";
 #include "difficulty.h";
+#include "assignTexture.h";
 
 using namespace std;
 
@@ -236,6 +237,7 @@ void myInit(void)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0.0, 2000, 0.0, 2000);
+    assignTexture();
 
 
 //    NO MUSIC BECAUSE HARAM

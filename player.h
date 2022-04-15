@@ -6,25 +6,6 @@ void drawPlayer()
 {
     glClearColor(0.0, 0.0, 0.0, 0.5);
 
-    // Assigning textures
-    if(isDead)
-    {
-        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4d.png";
-        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\handd.png";
-        headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ds.png";
-    }
-    else
-    {
-        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4s.png";
-        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\hands.png";
-        headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_bs.png";
-    }
-
-    neckTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\necks.png";
-    head2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ss.png";
-
-
-
     // Body
     displayTexture(bodyTex, x, 130 + w, x + 157, 130 + w, x + 157, 400 + w, x, 400 + w);
 

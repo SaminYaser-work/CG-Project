@@ -896,10 +896,10 @@
 	<windows.h>
 	<stddef.h>
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
 	"freeglut_std.h"
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -916,7 +916,7 @@
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
 
-1649922604 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
+1650066987 source:c:\users\samin\documents\projects\graphics\cg-project\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -934,13 +934,14 @@
 	"obstacle.h"
 	"score.h"
 	"difficulty.h"
+	"assignTexture.h"
 
-1649844433 c:\users\samin\documents\projects\graphics\cg-project\bg.h
+1649854261 c:\users\samin\documents\projects\graphics\cg-project\bg.h
 
-1649945368 c:\users\samin\documents\projects\graphics\cg-project\player.h
+1650066916 c:\users\samin\documents\projects\graphics\cg-project\player.h
 	"variables.h"
 
-1648647898 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h
+1649323587 c:\users\samin\documents\projects\graphics\cg-project\stb_image.h
 	"stb_image.h"
 	<stdio.h>
 	<stdlib.h>
@@ -1000,24 +1001,28 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1649917239 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
+1649859759 c:\users\samin\documents\projects\graphics\cg-project\printtext.h
 
-1649945368 c:\users\samin\documents\projects\graphics\cg-project\variables.h
+1650065941 c:\users\samin\documents\projects\graphics\cg-project\variables.h
 
-1649843137 c:\users\samin\documents\projects\graphics\cg-project\obstacle.h
+1650066939 c:\users\samin\documents\projects\graphics\cg-project\obstacle.h
 	"variables.h"
+	"texture.h"
 
-1649849713 c:\users\samin\documents\projects\graphics\cg-project\score.h
+1649854261 c:\users\samin\documents\projects\graphics\cg-project\score.h
 
-1649844299 c:\users\samin\documents\projects\graphics\cg-project\difficulty.h
+1649854261 c:\users\samin\documents\projects\graphics\cg-project\difficulty.h
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut.h
 	"freeglut_std.h"
 	"freeglut_ext.h"
 
-1644283842 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_ext.h
+1426328128 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_ext.h
 	<stdarg.h>
 
-1649945368 c:\users\samin\documents\projects\graphics\cg-project\texture.h
+1649929480 c:\users\samin\documents\projects\graphics\cg-project\texture.h
 	"stb_image.h"
+
+1650066276 c:\users\samin\documents\projects\graphics\cg-project\assigntexture.h
+	"variables.h"
 

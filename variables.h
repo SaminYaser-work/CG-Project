@@ -11,10 +11,16 @@ int walk = 0;
 
 bool isDead = false;
 
+// Player
 const char* headTex;
 const char* head2Tex;
 const char* bodyTex;
 const char* handTex;
 const char* neckTex;
+
+// Obstacle
+const char* divTex;
+const char* midTex;
+const char* endTex;
 
 #endif // VARIABLES_H_INCLUDED
