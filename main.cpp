@@ -43,8 +43,8 @@ bool isFirst = true;
 
 bool dieNextFrame = false;
 
-
-int grav = 9;
+bool isTut = false;
+bool showTut = true;
 
 
 void animate(int value)
@@ -155,8 +155,8 @@ void render( void )
     }
 
     // Rendering obstacles
-    generate_tree(x_, obstacleHeight);
-    generate_tree(x2_, obstacleHeight);
+    placeObstacle(x_, obstacleHeight);
+    placeObstacle(x2_, obstacleHeight);
 
 
     // Move the obstacle closer
