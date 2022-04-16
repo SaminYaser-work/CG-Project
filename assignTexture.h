@@ -1,7 +1,7 @@
 #ifndef ASSIGNTEXTURE_H_INCLUDED
 #define ASSIGNTEXTURE_H_INCLUDED
 
-#include "variables.h";
+#include "variables.h"
 
 void assignTexture()
 {

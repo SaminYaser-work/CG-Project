@@ -45,7 +45,8 @@ bool dieNextFrame = false;
 bool pauseNextFrame = false;
 
 bool isTut = false;
-bool showTut = true;
+bool showTut = false;
+int delay = 4000;
 
 
 void animate(int value)
@@ -71,13 +72,14 @@ void keyInput(unsigned char key, int x, int y)
         if(isAnimate)
         {
             pauseNextFrame = true;
-
         }
         else
         {
             isAnimate = 1;
             animate(1);
             sndPlaySound("start.wav", SND_ASYNC);
+            if(isFirst)
+                showTut = true;
             isFirst = false;
             isDead = false;
             pauseNextFrame = false;
@@ -107,6 +109,7 @@ void specialKeyInput(int key, int x, int y )
     {
         flag  = 1;
         sndPlaySound("jump.wav", SND_ASYNC);
+        showTut = false;
     }
     glutPostRedisplay();
 }
@@ -156,15 +159,29 @@ void render( void )
         x_ - x2_ < 1000 ? x_ += 500 : x_ = x_;
     }
 
-    // Rendering obstacles
-    placeObstacle(x_, obstacleHeight);
-    placeObstacle(x2_, obstacleHeight);
+    if(showTut)
+    {
+        glColor3ub(122,152,238);
+        printText("Press Up Arrow to Jump!", 530, 1500, 0.5, 3);
+        printText("Press <space> to pause the game", 420, 1200, 0.5, 3);
+    }
+    else
+    {
+        if(delay >= 0 && isAnimate)
+        {
+            printText("Avoid The Obstacles!", 350, 1500, 1, 5);
+            delay -= 10;
+        }
 
+        // Rendering obstacles
+        placeObstacle(x_, obstacleHeight);
+        placeObstacle(x2_, obstacleHeight);
 
-    // Move the obstacle closer
-    // diff is defined in "variables.h". So change it there. DO NOT CHANGE ANYTHING HERE
-    x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
-    x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
+        // Move the obstacle closer
+        // diff is defined in "variables.h". So change it there. DO NOT CHANGE ANYTHING HERE
+        x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
+        x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
+    }
 
 
     // The street outer line
@@ -232,7 +249,7 @@ void render( void )
     if(pauseNextFrame)
     {
         sndPlaySound("pause.wav", SND_ASYNC);
-        printText("Game Paused...", 550, 1200, 1.0, 5);
+        printText("Game Paused...", 550, 900, 1.0, 5);
         isAnimate = 0;
     }
 

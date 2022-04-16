@@ -1,4 +1,4 @@
-#include "variables.h";
+#include "variables.h"
 
 void drawWheel(float, float, float, float, int);
 
