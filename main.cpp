@@ -116,6 +116,7 @@ void specialKeyInput(int key, int x, int y )
 
 void reset()
 {
+    diffc = dDiff;
     w = 250;
     flag = 0;
     walk = 0;
@@ -137,28 +138,34 @@ void render( void )
     drawStreet();
 
 
-    //Printing Score
+    //Printing Score & Level
     if(!isFirst)
+    {
         printText("Score: " + to_string(score));
+        printText("Level: " + to_string(diffc - dDiff), 1450, 1800, 1.0, 5);
+    }
     period++;
-    if (period > 500/animationPeriod)
+    if (period > 500/animationPeriod && !showTut)
     {
         score++;
         period = 0;
-        if(score%10==0){
-            diff+=1;
-            //std::cout<<diff<<'\n'; //Just to debug the diff value.
+
+        // Difficulty increase
+        if(score%7==0 && diffc < 12){
+            diffc+=1;
+//            std::cout<<"Difficulty: " << diffc <<'\n';
         }
     }
+
 
     // Makes gap between obstacles
     if(x2_ > x_)
     {
-        x2_ - x_ < 1000 ? x2_ += 500 : x2_ = x2_;
+        x2_ - x_ < 1000 ? x2_ += 600 : x2_ = x2_;
     }
     else
     {
-        x_ - x2_ < 1000 ? x_ += 500 : x_ = x_;
+        x_ - x2_ < 1000 ? x_ += 600 : x_ = x_;
     }
 
     if(showTut)
@@ -181,8 +188,8 @@ void render( void )
 
         // Move the obstacle closer
         // diff is defined in "variables.h". So change it there. DO NOT CHANGE ANYTHING HERE
-        x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
-        x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
+        x_ >= 0 ? x_ -= diffc : x_ = 2000 + getRand<int>(0, 500);
+        x2_ >= 0 ? x2_ -= diffc : x2_ = 4500 + getRand<int>(1000, 1500);
     }
 
 

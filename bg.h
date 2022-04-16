@@ -71,6 +71,8 @@ void decrementLine()
 void drawBG()
 {
 
+    speed = static_cast<float>(diffc) * 0.05;
+
     // Sky
     glBegin(GL_QUADS);
     glColor3ub(201, 62, 189);
@@ -217,7 +219,8 @@ void drawStreet()
     glColor3ub(182, 29, 129);
     for(int i = 0; i < 25; i++)
     {
-        line[i] -= diff;
+        // Moves faster with difficulty
+        line[i] -= diffc;
 
         if(line[i] < 0)
         {

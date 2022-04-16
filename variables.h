@@ -12,9 +12,10 @@ int walk = 0;
 bool isDead = false;
 
 // change this to make the game difficult
-int diff = 6; //Starting value. Looks good to maine.
+const int dDiff = 6;
+int diffc = dDiff;
 
-int jumpVelocity = diff + 5;
+int jumpVelocity = 8 + 2*diffc - dDiff;
 
 // Player
 const char* headTex;
