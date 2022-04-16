@@ -93,4 +93,3 @@ void drawWheel(float cx, float cy, float rx, float ry, int num_segments)
     }
     glEnd();
 }
-

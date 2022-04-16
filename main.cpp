@@ -79,6 +79,7 @@ void keyInput(unsigned char key, int x, int y)
             sndPlaySound("start.wav", SND_ASYNC);
             isFirst = false;
             isDead = false;
+            assignTexture();
         }
         break;
     }
@@ -180,7 +181,7 @@ void render( void )
         {
             dieNextFrame = true;
             isDead = true;
-
+            assignTexture();
         }
         else
         {
