@@ -2,6 +2,7 @@
 #define BG_H_INCLUDED
 
 #include "variables.h"
+#include "randomVal.h"
 
 const double DEG2RAD = 3.1415926535897932384/180;
 
@@ -28,12 +29,6 @@ float rain = 0.0;
 
 void DrawEllipse(float, float, float, float, int);
 
-
-template<typename T>
-T getRand(T minRange, T maxRange)
-{
-    return minRange + (fmod(rand(), (maxRange - minRange + 1)));
-}
 
 void randomizeArray()
 {

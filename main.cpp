@@ -183,13 +183,33 @@ void render( void )
         }
 
         // Rendering obstacles
-        placeObstacle(x_, obstacleHeight);
-        placeObstacle(x2_, obstacleHeight);
+        placeObstacle(x_, obstacleHeight, randTex1);
+        placeObstacle(x2_, obstacleHeight, randTex2);
 
         // Move the obstacle closer
         // diff is defined in "variables.h". So change it there. DO NOT CHANGE ANYTHING HERE
-        x_ >= 0 ? x_ -= diffc : x_ = 2000 + getRand<int>(0, 500);
-        x2_ >= 0 ? x2_ -= diffc : x2_ = 4500 + getRand<int>(1000, 1500);
+//        x_ >= 0 ? x_ -= diffc : x_ = 2000 + getRand<int>(0, 500);
+//        x2_ >= 0 ? x2_ -= diffc : x2_ = 4500 + getRand<int>(1000, 1500);
+
+        if(x_ >= 0)
+        {
+            x_ -= diffc;
+        }
+        else
+        {
+            x_ = 2000 + getRand<int>(0, 500);
+            randTex1 = getRand<int>(0, 1);
+        }
+
+        if(x2_ >= 0)
+        {
+            x2_ -= diffc;
+        }
+        else
+        {
+            x2_ = 4500 + getRand<int>(1000, 1500);
+            randTex2 = getRand<int>(0, 1);
+        }
     }
 
 

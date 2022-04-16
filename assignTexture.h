@@ -27,6 +27,7 @@ void assignTexture()
     divTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_d.png";
     endTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_1.png";
     midTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_2.png";
+    mid2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_2v.png";
 
     // Logo
     logoTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png";

@@ -4,7 +4,7 @@
 #include "variables.h"
 #include "texture.h"
 
-void placeObstacle(int x_, double len)
+void placeObstacle(int x_, double len, int randVal)
 {
     int x = 120;
     int y = 10;
@@ -35,8 +35,10 @@ void placeObstacle(int x_, double len)
                    x_ + x + y,  dist[2] + z * len,
                    x_ - y,      dist[2] + z * len);
 
+
     // Middle
-    displayTexture(midTex,
+    const char* randTex = randVal ? midTex : mid2Tex;
+    displayTexture(randTex,
                    x_,      dist[3]             * len,
                    x_ + x,  dist[3]             * len,
                    x_ + x,  dist[3] + m + 20    * len,
@@ -65,5 +67,15 @@ void placeObstacle(int x_, double len)
 
 }
 
+//void moveObstacle(int f, int dist)
+//{
+//    x_ >= 0 ? x_ -= diffc : x_ = 2000 + getRand<int>(0, 500);
+//    x2_ >= 0 ? x2_ -= diffc : x2_ = 4500 + getRand<int>(1000, 1500);
+//
+//    if(f >= 0)
+//    {
+//
+//    }
+//}
 
 #endif // OBSTACLE_H_INCLUDED
