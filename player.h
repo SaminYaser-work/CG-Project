@@ -23,7 +23,7 @@ void drawPlayer()
         glVertex2i(x +  10,       w);
     glEnd();
 
-    glColor3ub(120,120,120);
+    glColor3ub(102, 83, 106);
     drawWheel(x+41, w + 47, 25, 25*aspectRatio, 360);
     drawWheel(x+41, w + 140, 15, 15*aspectRatio, 360);
     drawWheel(x+100, w + 35, 18, 18*aspectRatio, 360);
@@ -43,7 +43,7 @@ void drawPlayer()
     displayTexture(handTex, x + 20, 300 + w, x + 170, 300 + w - walk, x + 170, 340 + w - walk, x + 20,  340 + w);
 
     // Finger
-    glColor3ub(120,120,120);
+    glColor3ub(102, 83, 106);
     glLineWidth(5);
     glBegin(GL_LINES);
         glVertex2i(x + 170, 325 + w - walk);

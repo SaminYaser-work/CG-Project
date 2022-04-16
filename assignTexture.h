@@ -8,14 +8,14 @@ void assignTexture()
     // Player
     if(isDead)
     {
-        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4d.png";
-        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\handd.png";
+        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body5d.png";
+        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\handwd.png";
         headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_ds.png";
     }
     else
     {
-        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body4s.png";
-        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\hands.png";
+        bodyTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\body5.png";
+        handTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\handw.png";
         headTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\head_bs.png";
     }
 
@@ -27,6 +27,9 @@ void assignTexture()
     divTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_d.png";
     endTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_1.png";
     midTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_2.png";
+
+    // Logo
+    logoTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png";
 }
 
 #endif // ASSIGNTEXTURE_H_INCLUDED

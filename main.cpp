@@ -175,7 +175,7 @@ void render( void )
 
     drawPlayer();
 
-    if(collision(0.8))
+    if(collision(0.8) || dieNextFrame)
     {
         if(!dieNextFrame)
         {
@@ -224,7 +224,7 @@ void render( void )
         // Relative path doesn't work
         // Change this to absolute path of your computer
         // Don't forget to escape '\' !!!
-        displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png", 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
+        displayTexture(logoTex, 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
     }
 
 //    glFlush();

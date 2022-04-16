@@ -28,4 +28,7 @@ const char* divTex;
 const char* midTex;
 const char* endTex;
 
+// Logo
+const char* logoTex;
+
 #endif // VARIABLES_H_INCLUDED
