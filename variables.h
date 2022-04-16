@@ -11,6 +11,11 @@ int walk = 0;
 
 bool isDead = false;
 
+// change this to make the game difficult
+int diff = 10;
+
+int jumpVelocity = diff + 5;
+
 // Player
 const char* headTex;
 const char* head2Tex;

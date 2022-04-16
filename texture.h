@@ -12,7 +12,7 @@ GLuint getTexture(const char* filePath)
     GLuint texture_obj = 0;
     int width = 0, height = 0, channels = 0;
     stbi_set_flip_vertically_on_load(true);
-    stbi_uc *image = stbi_load( filePath, &width, &height, &channels, STBI_rgb_alpha );
+    stbi_uc *image = stbi_load( filePath, &width, &height, &channels, STBI_rgb );
 
     if ( image != nullptr )
     {
@@ -24,7 +24,7 @@ GLuint getTexture(const char* filePath)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
         glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 
         stbi_image_free( image );
@@ -47,8 +47,8 @@ GLuint getTexture(const char* filePath)
 void displayTexture(const char* filePath ,int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 {
 
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//    glEnable(GL_BLEND);
+//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     GLuint texture_obj = getTexture(filePath);
     glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
@@ -66,7 +66,7 @@ void displayTexture(const char* filePath ,int x1, int y1, int x2, int y2, int x3
         glTexCoord2i(0, 1); glVertex2i(x4, y4);
 
     glEnd();
-    glDisable(GL_BLEND);
+//    glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
     glDeleteTextures(1, &texture_obj);
 }

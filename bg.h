@@ -1,6 +1,8 @@
 #ifndef BG_H_INCLUDED
 #define BG_H_INCLUDED
 
+#include "variables.h"
+
 const double DEG2RAD = 3.1415926535897932384/180;
 
 // Aspect ratio
@@ -209,13 +211,13 @@ void drawStreet()
     glEnd();
 
     // bullshit on the street
-    float speedl = 5;
+    // float speedl = 10;
     glLineWidth(1);
     glBegin(GL_LINES);
     glColor3ub(182, 29, 129);
     for(int i = 0; i < 25; i++)
     {
-        line[i] -= speedl;
+        line[i] -= diff;
 
         if(line[i] < 0)
         {

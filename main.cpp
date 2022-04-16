@@ -9,14 +9,14 @@
 #include <random>
 #include <GL/freeglut.h>
 
-#include "printText.h";
-#include "texture.h";
-#include "bg.h";
-#include "player.h";
-#include "obstacle.h";
-#include "score.h";
-#include "difficulty.h";
-#include "assignTexture.h";
+#include "printText.h"
+#include "texture.h"
+#include "bg.h"
+#include "player.h"
+#include "obstacle.h"
+#include "score.h"
+#include "difficulty.h"
+#include "assignTexture.h"
 
 using namespace std;
 
@@ -43,7 +43,7 @@ bool isFirst = true;
 
 bool dieNextFrame = false;
 
-int jumpVelocity = 8;
+
 int grav = 9;
 
 
@@ -160,7 +160,7 @@ void render( void )
 
 
     // Move the obstacle closer
-    int diff = 5; // change this to make the game difficult
+    // diff is defined in "variables.h". So change it there. DO NOT CHANGE ANYTHING HERE
     x_ >= 0 ? x_ -= diff : x_ = 2000 + getRand<int>(0, 500);
     x2_ >= 0 ? x2_ -= diff : x2_ = 4500 + getRand<int>(1000, 1500);
 
@@ -227,6 +227,7 @@ void render( void )
         displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png", 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
     }
 
+//    glFlush();
     glutSwapBuffers();
 }
 
