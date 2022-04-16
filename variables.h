@@ -26,9 +26,11 @@ const char* neckTex;
 
 // Obstacle
 const char* divTex;
+const char* div2Tex;
 const char* midTex;
 const char* mid2Tex;
 const char* endTex;
+const char* end2Tex;
 int randTex1;
 int randTex2;
 

@@ -25,7 +25,9 @@ void assignTexture()
 
     // Obstacle
     divTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_d.png";
+    div2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_dv.png";
     endTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_1.png";
+    end2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_1v.png";
     midTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_2.png";
     mid2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_2v.png";
 
