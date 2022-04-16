@@ -136,8 +136,6 @@ void render( void )
 
     drawStreet();
 
-    // Looks like shit
-    // Rain(true);
 
     //Printing Score
     if(!isFirst)
@@ -147,6 +145,10 @@ void render( void )
     {
         score++;
         period = 0;
+        if(score%10==0){
+            diff+=1;
+            //std::cout<<diff<<'\n'; //Just to debug the diff value.
+        }
     }
 
     // Makes gap between obstacles
@@ -298,6 +300,3 @@ int main( int argc, char** argv )
 
     glutMainLoop();
 }
-
-
-
