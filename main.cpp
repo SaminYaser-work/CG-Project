@@ -17,6 +17,7 @@
 #include "score.h"
 #include "difficulty.h"
 #include "assignTexture.h"
+#include "randomVal.h"
 
 using namespace std;
 
@@ -151,9 +152,10 @@ void render( void )
         period = 0;
 
         // Difficulty increase
-        if(score%7==0 && diffc < 12){
+        if(score%7==0 && diffc < 12)
+        {
             diffc+=1;
-//            std::cout<<"Difficulty: " << diffc <<'\n';
+            // sndPlaySound("level_up.wav", SND_ASYNC);
         }
     }
 
@@ -188,8 +190,6 @@ void render( void )
 
         // Move the obstacle closer
         // diff is defined in "variables.h". So change it there. DO NOT CHANGE ANYTHING HERE
-//        x_ >= 0 ? x_ -= diffc : x_ = 2000 + getRand<int>(0, 500);
-//        x2_ >= 0 ? x2_ -= diffc : x2_ = 4500 + getRand<int>(1000, 1500);
 
         if(x_ >= 0)
         {
@@ -246,7 +246,7 @@ void render( void )
     else
     {
         if(walk > 0)
-            walk -= 1;
+            walk -= 2;
     }
 
     // Jump

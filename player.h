@@ -13,14 +13,14 @@ void drawPlayer()
     glColor3ub(36,38,39);
     glLineWidth(8);
     glBegin(GL_LINES);
-        glVertex2i(x +  10,       w);
-        glVertex2i(x + 147,       w);
+    glVertex2i(x +  10,       w);
+    glVertex2i(x + 147,       w);
 
-        glVertex2i(x + 147,       w);
-        glVertex2i(x +  30, 200 + w);
+    glVertex2i(x + 147,       w);
+    glVertex2i(x +  30, 200 + w);
 
-        glVertex2i(x +  30, 200 + w);
-        glVertex2i(x +  10,       w);
+    glVertex2i(x +  30, 200 + w);
+    glVertex2i(x +  10,       w);
     glEnd();
 
     glColor3ub(102, 83, 106);
@@ -31,26 +31,30 @@ void drawPlayer()
     glColor3ub(0,0,0);
     glLineWidth(3);
     glBegin(GL_LINES);
-        glVertex2i(x + 41, w + 47);
-        glVertex2i(x + 100, w + 35);
-        glVertex2i(x + 41, w + 47);
-        glVertex2i(x + 41, w + 140);
-        glVertex2i(x + 41, w + 140);
-        glVertex2i(x + 100, w + 35);
+    glVertex2i(x + 41, w + 47);
+    glVertex2i(x + 100, w + 35);
+    glVertex2i(x + 41, w + 47);
+    glVertex2i(x + 41, w + 140);
+    glVertex2i(x + 41, w + 140);
+    glVertex2i(x + 100, w + 35);
     glEnd();
 
     // Hand
-    displayTexture(handTex, x + 20, 300 + w, x + 170, 300 + w - walk, x + 170, 340 + w - walk, x + 20,  340 + w);
+    displayTexture(handTex,
+                   x + 20, 300 + w,
+                   x + 170, 300 + w - walk,
+                   x + 170, 340 + w - walk,
+                   x + 20,  340 + w);
 
     // Finger
     glColor3ub(102, 83, 106);
     glLineWidth(5);
     glBegin(GL_LINES);
-        glVertex2i(x + 170, 325 + w - walk);
-        glVertex2i(x + 190, 325 + w - walk);
+    glVertex2i(x + 170, 325 + w - walk);
+    glVertex2i(x + 190, 325 + w - walk);
     glLineWidth(3);
-        glVertex2i(x + 190, 330 + w - walk);
-        glVertex2i(x + 200, 300 + w - walk);
+    glVertex2i(x + 190, 330 + w - walk);
+    glVertex2i(x + 200, 300 + w - walk);
     glEnd();
 
     // Neck
@@ -66,8 +70,8 @@ void drawPlayer()
                    x + 100 + walk * .2, 550 + w - walk * .2, x +  50 + walk * .2, 550 + w);
 
     displayTexture(headTex,
-                    x + 100 - walk * .01, 470 + w, x + 150, 470 + w - walk * .2,
-                    x + 150 + walk * .2, 570 + w - walk * .2, x + 100 + walk * .2, 570 + w);
+                   x + 100 - walk * .01, 470 + w, x + 150, 470 + w - walk * .2,
+                   x + 150 + walk * .2, 570 + w - walk * .2, x + 100 + walk * .2, 570 + w);
 }
 
 void drawWheel(float cx, float cy, float rx, float ry, int num_segments)

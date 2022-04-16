@@ -246,8 +246,8 @@ void Rain(bool isRainDay)
         y%=2000;
         glBegin(GL_LINES);
         glColor3f(1.0, 1.0, 1.0);
-            glVertex2d(x,y);
-            glVertex2d(x+5,y+5);
+        glVertex2d(x,y);
+        glVertex2d(x+5,y+5);
         glEnd();
     }
 
