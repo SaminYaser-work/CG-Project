@@ -42,6 +42,7 @@ int period = 0;
 bool isFirst = true;
 
 bool dieNextFrame = false;
+bool pauseNextFrame = false;
 
 bool isTut = false;
 bool showTut = true;
@@ -69,8 +70,8 @@ void keyInput(unsigned char key, int x, int y)
     case ' ':
         if(isAnimate)
         {
-            isAnimate = 0;
-            sndPlaySound("pause.wav", SND_ASYNC);
+            pauseNextFrame = true;
+
         }
         else
         {
@@ -79,6 +80,7 @@ void keyInput(unsigned char key, int x, int y)
             sndPlaySound("start.wav", SND_ASYNC);
             isFirst = false;
             isDead = false;
+            pauseNextFrame = false;
             assignTexture();
         }
         break;
@@ -226,6 +228,14 @@ void render( void )
         // Don't forget to escape '\' !!!
         displayTexture(logoTex, 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
     }
+
+    if(pauseNextFrame)
+    {
+        sndPlaySound("pause.wav", SND_ASYNC);
+        printText("Game Paused...", 550, 1200, 1.0, 5);
+        isAnimate = 0;
+    }
+
 
 //    glFlush();
     glutSwapBuffers();
