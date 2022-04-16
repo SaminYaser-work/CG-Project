@@ -68,6 +68,7 @@ void displayTexture(const char* filePath ,int x1, int y1, int x2, int y2, int x3
     glEnd();
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
+    glDeleteTextures(1, &texture_obj);
 }
 
 
