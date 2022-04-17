@@ -18,6 +18,7 @@
 #include "difficulty.h"
 #include "assignTexture.h"
 #include "randomVal.h"
+#include "gameover.h"
 
 using namespace std;
 
@@ -235,6 +236,7 @@ void render( void )
         {
             reset();
             sndPlaySound("game_over.wav", SND_ASYNC);
+            gameOver();
         }
     }
 
