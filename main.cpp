@@ -273,8 +273,10 @@ void render( void )
     {
         // Relative path doesn't work
         // Change this to absolute path of your computer
-        // Don't forget to escape '\' !!!
-        displayTexture(logoTex, 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
+        // Don't forget to escape '\' !!
+        displayTexture(logoTex, 600, 900, 1400, 900, 1400, 1650, 600, 1650);
+//        glColor3ub(244, 150, 210);
+//        printText("Press <space> to start...", 600, 1050, 0.5, 3);
     }
 
     if(pauseNextFrame)
@@ -306,7 +308,7 @@ void myInit(void)
 
 int main( int argc, char** argv )
 {
-    clockStart = clock();
+    // clockStart = clock();
     srand(time(NULL));
     randomizeArray();
     incrementLine();
@@ -320,7 +322,7 @@ int main( int argc, char** argv )
     glutInitWindowPosition((glutGet(GLUT_SCREEN_WIDTH)-sWidth)/2,
                            (glutGet(GLUT_SCREEN_HEIGHT)-sHeight)/2);
 
-    glutCreateWindow("CG Project Demo");
+    glutCreateWindow("OpenGL Adventures");
 
     myInit();
     glutDisplayFunc(render);

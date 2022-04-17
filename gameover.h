@@ -6,7 +6,7 @@
 #include "printText.h"
 
 void gameOver(){
-    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\gmo2.jpg",
+    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\gmo3.png",
                    600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
 
     // Add text to {to play agian}

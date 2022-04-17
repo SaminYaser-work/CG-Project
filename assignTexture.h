@@ -32,7 +32,7 @@ void assignTexture()
     mid2Tex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\b_2v.png";
 
     // Logo
-    logoTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\bin\\Debug\\logo.png";
+    logoTex = "C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\logo2.png";
 }
 
 #endif // ASSIGNTEXTURE_H_INCLUDED
