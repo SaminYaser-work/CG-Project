@@ -94,7 +94,7 @@ void keyInput(unsigned char key, int x, int y)
 bool collision(double len)
 {
     // Checking the distance
-    if(abs(157 + x - (x_ + x + 50)) <= 100 + x || abs(157 + x - (x2_ + x + 50)) <= 100 + x)
+    if(abs(157 + x - (x_ + x + 50)) <= 70 + x || abs(157 + x - (x2_ + x + 50)) <= 70 + x)
     {
         // If height is low then its a hit
         if(5 * fact + w <= 650 * len)
