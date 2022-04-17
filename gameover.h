@@ -6,10 +6,11 @@
 #include "printText.h"
 
 void gameOver(){
-    displayTexture("E:\\CG-Project\\textures\\gmo2.jpg", 600, 1000, 1400, 1000, 1400, 1750, 600, 1750);  //'🆘Change the gmo2.jpg file direcotry...! 
+    displayTexture("C:\\Users\\samin\\Documents\\Projects\\Graphics\\CG-Project\\textures\\gmo2.jpg",
+                   600, 1000, 1400, 1000, 1400, 1750, 600, 1750);
 
     // Add text to {to play agian}
-    std::string contText="Press <space> to play again";
-    printText(contText,690.0,1030.0, 0.3, 2);
+    std::string contText="Press <space> to try again";
+    printText(contText,720.0,1030.0, 0.3, 2);
 }
 #endif // GAMEOVER_H_INCLUDED
