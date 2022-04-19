@@ -6,6 +6,8 @@
 Simple endless runner game made with c++ with openGL API and freeglut library.
 [List of features](https://github.com/SaminYaser-work/CG-Project/projects/1)
 
+Textures are loading using [std_image.h](https://github.com/nothings/stb/blob/master/stb_image.h) from [stb library](https://github.com/nothings/stb)
+
 ## Instructions
 - Use codeblocks to build
 - Change textures paths
